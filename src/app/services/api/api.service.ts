@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +13,13 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   post<T> (path: string, data: any) {
-    return this.http.post<T>(`${environment.apiUrl}${path}`, JSON.stringify(data), httpOptions)
+    return this.http.post<T>(`${environment.apiUrl}/${path}`, JSON.stringify(data), httpOptions)
       .toPromise()
       .catch(this.handleError);
   }
 
   get<T> (path: string) {
-    return this.http.get<T>(`${environment.apiUrl}${path}`, httpOptions)
+    return this.http.get<T>(`${environment.apiUrl}/${path}`, httpOptions)
       .toPromise()
       .catch(this.handleError);
   }
