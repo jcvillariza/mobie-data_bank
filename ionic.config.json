@@ -1,5 +1,7 @@
 {
   "name": "data-bank",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
